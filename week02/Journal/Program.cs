@@ -1,3 +1,7 @@
+// Extended Feature: Mood tracking added to journal entries.
+// Users are prompted to include their current mood, which is saved, displayed, and loaded from file.
+
+
 using System;
 
 class Program
@@ -26,11 +30,15 @@ class Program
                 Console.Write("> ");
                 string response = Console.ReadLine();
 
+                Console.Write("What is your mood today? "); // ✅ NEW
+                string mood = Console.ReadLine();
+
                 Entry newEntry = new Entry
                 {
                     _date = DateTime.Now.ToString("yyyy-MM-dd"),
                     _prompt = prompt,
-                    _response = response
+                    _response = response,
+                    _mood = mood // ✅ NEW
                 };
 
                 myJournal.AddEntry(newEntry);
